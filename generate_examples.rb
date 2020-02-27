@@ -9,11 +9,11 @@ examples = []
   iv = cipher.random_iv
   cipher.key = key
   cipher.iv = iv
-  encrypt_client_key = Base64.urlsafe_encode64(key)
-  ab = Base64.urlsafe_encode64(iv)
+  encrypt_client_key = Base64.urlsafe_encode64(key, padding: false)
+  ab = Base64.urlsafe_encode64(iv, padding: false)
   waiting_id = (rand 60000..70000).to_s
   encrypted = cipher.update(waiting_id) + cipher.final
-  encoded = Base64.urlsafe_encode64(encrypted)
+  encoded = Base64.urlsafe_encode64(encrypted, padding: false)
   examples << { encrypt_client_key: encrypt_client_key,
                 ab: ab,
                 waiting_id: waiting_id,
