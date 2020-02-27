@@ -6,7 +6,7 @@ examples = []
   cipher = OpenSSL::Cipher::AES.new(128, :CTR)
   cipher.encrypt
   key = cipher.random_key
-  iv = OpenSSL::Random.random_bytes(16)
+  iv = cipher.random_iv
   cipher.key = key
   cipher.iv = iv
   encrypt_client_key = Base64.urlsafe_encode64(key)
