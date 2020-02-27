@@ -21,6 +21,8 @@ examples = []
 end
 # Uncomment to test examples
 #
+puts "Ruby tests:"
+puts ""
 examples.each do |example|
   decipher = OpenSSL::Cipher::AES.new(128, :CTR)
   decipher.decrypt
@@ -35,6 +37,7 @@ examples.each do |example|
   puts "Passed: #{waiting_id == example[:waiting_id]}"
 end
 
+puts ""
 puts "PHP Examples:"
 puts ""
 puts "Replace this in `waiting_id.php`"
